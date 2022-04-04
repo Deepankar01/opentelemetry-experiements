@@ -1,0 +1,52 @@
+{
+  "root": "packages/ms-publisher",
+  "sourceRoot": "packages/ms-publisher/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/ms-publisher",
+        "main": "packages/ms-publisher/src/main.ts",
+        "tsConfig": "packages/ms-publisher/tsconfig.app.json",
+        "assets": ["packages/ms-publisher/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "packages/ms-publisher/src/environments/environment.ts",
+              "with": "packages/ms-publisher/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "ms-publisher:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/ms-publisher/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/ms-publisher"],
+      "options": {
+        "jestConfig": "packages/ms-publisher/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
