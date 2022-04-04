@@ -3,6 +3,9 @@
   "projects": {
     "client": "packages/client",
     "client-e2e": "packages/client-e2e",
+    "db-mongo": "packages/libs/db/mongo",
+    "events-generic": "packages/libs/events/generic",
+    "events-json": "packages/libs/events/json",
     "ms-author": "packages/ms-author",
     "ms-book": "packages/ms-book",
     "ms-gateway": "packages/ms-gateway",

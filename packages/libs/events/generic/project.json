@@ -1,0 +1,34 @@
+{
+  "root": "packages/events/generic",
+  "sourceRoot": "packages/events/generic/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/events/generic",
+        "tsConfig": "packages/events/generic/tsconfig.lib.json",
+        "packageJson": "packages/events/generic/package.json",
+        "main": "packages/events/generic/src/index.ts",
+        "assets": ["packages/events/generic/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/events/generic/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/events/generic"],
+      "options": {
+        "jestConfig": "packages/events/generic/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

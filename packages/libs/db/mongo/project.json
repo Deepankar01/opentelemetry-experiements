@@ -1,0 +1,34 @@
+{
+  "root": "packages/db/mongo",
+  "sourceRoot": "packages/db/mongo/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/db/mongo",
+        "tsConfig": "packages/db/mongo/tsconfig.lib.json",
+        "packageJson": "packages/db/mongo/package.json",
+        "main": "packages/db/mongo/src/index.ts",
+        "assets": ["packages/db/mongo/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/db/mongo/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/db/mongo"],
+      "options": {
+        "jestConfig": "packages/db/mongo/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
