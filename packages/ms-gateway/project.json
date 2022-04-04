@@ -9,8 +9,7 @@
       "options": {
         "outputPath": "dist/packages/ms-gateway",
         "main": "packages/ms-gateway/src/main.ts",
-        "tsConfig": "packages/ms-gateway/tsconfig.app.json",
-        "assets": ["packages/ms-gateway/src/assets"]
+        "tsConfig": "packages/ms-gateway/tsconfig.app.json"
       },
       "configurations": {
         "production": {

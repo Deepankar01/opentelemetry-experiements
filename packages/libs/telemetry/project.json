@@ -1,0 +1,34 @@
+{
+  "root": "packages/libs/telemetry",
+  "sourceRoot": "packages/libs/telemetry/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/libs/telemetry",
+        "tsConfig": "packages/libs/telemetry/tsconfig.lib.json",
+        "packageJson": "packages/libs/telemetry/package.json",
+        "main": "packages/libs/telemetry/src/index.ts",
+        "assets": ["packages/libs/telemetry/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/libs/telemetry/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/libs/telemetry"],
+      "options": {
+        "jestConfig": "packages/libs/telemetry/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

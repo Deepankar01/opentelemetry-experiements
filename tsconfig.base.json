@@ -16,12 +16,17 @@
     "baseUrl": ".",
     "paths": {
       "*": ["packages/libs/kafka-client/src/types/*"],
-      "@opentelemetry-experiments/db/mongo": ["packages/libs/db/mongo/src/index.ts"],
+      "@opentelemetry-experiments/db/mongo": [
+        "packages/libs/db/mongo/src/index.ts"
+      ],
       "@opentelemetry-experiments/events/generic": [
         "packages/libs/events/generic/src/index.ts"
       ],
       "@opentelemetry-experiments/events/json": [
         "packages/libs/events/json/src/index.ts"
+      ],
+      "@opentelemetry-experiments/libs/telemetry": [
+        "packages/libs/telemetry/src/index.ts"
       ],
       "@opentelemetry-experiments/shared-kafka-client": [
         "packages/libs/kafka-client/src/index.ts"

@@ -6,6 +6,7 @@
     "db-mongo": "packages/libs/db/mongo",
     "events-generic": "packages/libs/events/generic",
     "events-json": "packages/libs/events/json",
+    "libs-telemetry": "packages/libs/telemetry",
     "ms-author": "packages/ms-author",
     "ms-book": "packages/ms-book",
     "ms-gateway": "packages/ms-gateway",
