@@ -5,6 +5,8 @@
     "client-e2e": "packages/client-e2e",
     "ms-author": "packages/ms-author",
     "ms-book": "packages/ms-book",
-    "ms-publisher": "packages/ms-publisher"
+    "ms-gateway": "packages/ms-gateway",
+    "ms-publisher": "packages/ms-publisher",
+    "shared-kafka-client": "packages/libs/kafka-client"
   }
 }

@@ -1,0 +1,34 @@
+{
+  "root": "packages/shared/kafka-client",
+  "sourceRoot": "packages/shared/kafka-client/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/shared/kafka-client",
+        "tsConfig": "packages/shared/kafka-client/tsconfig.lib.json",
+        "packageJson": "packages/shared/kafka-client/package.json",
+        "main": "packages/shared/kafka-client/src/index.ts",
+        "assets": ["packages/shared/kafka-client/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/shared/kafka-client/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/shared/kafka-client"],
+      "options": {
+        "jestConfig": "packages/shared/kafka-client/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
