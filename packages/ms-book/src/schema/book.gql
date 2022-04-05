@@ -5,7 +5,7 @@ enum BOOKSTATUS {
   introduced
 }
 
-interface Book @key(fields: "publisherId") @key(fields: "authorId") {
+type Book @key(fields: "publisherId") @key(fields: "authorId") {
   id: String!
   name: String!
   publisherId: String!

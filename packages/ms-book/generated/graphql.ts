@@ -31,6 +31,7 @@ export type Scalars = {
 export { BOOKSTATUS };
 
 export type Book = {
+  __typename?: 'Book';
   authorId: Scalars['String'];
   id: Scalars['String'];
   name: Scalars['String'];
@@ -52,6 +53,23 @@ export type WithIndex<TObject> = TObject & Record<string, any>;
 export type ResolversObject<TObject> = WithIndex<TObject>;
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
+
+export type ReferenceResolver<TResult, TReference, TContext> = (
+  reference: TReference,
+  context: TContext,
+  info: GraphQLResolveInfo
+) => Promise<TResult> | TResult;
+
+type ScalarCheck<T, S> = S extends true ? T : NullableCheck<T, S>;
+type NullableCheck<T, S> = Maybe<T> extends T
+  ? Maybe<ListCheck<NonNullable<T>, S>>
+  : ListCheck<T, S>;
+type ListCheck<T, S> = T extends (infer U)[]
+  ? NullableCheck<U, S>[]
+  : GraphQLRecursivePick<T, S>;
+export type GraphQLRecursivePick<T, S> = {
+  [K in keyof T & keyof S]: ScalarCheck<T[K], S[K]>;
+};
 
 export type Resolver<
   TResult,
@@ -182,12 +200,20 @@ export type BookResolvers<
   ContextType = any,
   ParentType extends ResolversParentTypes['Book'] = ResolversParentTypes['Book']
 > = ResolversObject<{
-  __resolveType: TypeResolveFn<null, ParentType, ContextType>;
+  __resolveReference?: ReferenceResolver<
+    Maybe<ResolversTypes['Book']>,
+    { __typename: 'Book' } & (
+      | GraphQLRecursivePick<ParentType, { publisherId: true }>
+      | GraphQLRecursivePick<ParentType, { authorId: true }>
+    ),
+    ContextType
+  >;
   authorId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   publisherId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   status?: Resolver<ResolversTypes['BOOKSTATUS'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
 export type QueryResolvers<
