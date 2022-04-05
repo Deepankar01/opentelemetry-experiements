@@ -13,8 +13,10 @@ const typeDefs = loadFilesSync(path.join(__dirname, 'schema/**/*.gql'));
 
 console.log(path.join(__dirname, 'schema/**/*.gql'));
 
-export type DataSources = { 
- books: Books
+export type Context = {
+  dataSources: {
+    books: Books
+  } 
 }
 
 const server = new ApolloServer({

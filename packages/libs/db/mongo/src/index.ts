@@ -1,1 +1,2 @@
-export * from './lib/db-mongo';
+export * from './connectDatabase';
+export * from './config';

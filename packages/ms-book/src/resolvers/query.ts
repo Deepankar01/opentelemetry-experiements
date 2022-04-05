@@ -1,8 +1,8 @@
 import { QueryResolvers } from '../../generated/graphql';
-import { DataSources } from '../server';
+import { Context } from '../server';
 
-export const Query: QueryResolvers<DataSources> = {
-    async book (_, {id}, {books}) {
-        return books.getBook(id);
-    },
-  };
+export const Query: QueryResolvers<Context> = {
+  async book(_, { id }, { dataSources }) {
+    return dataSources.books.getBook(id);
+  },
+};
