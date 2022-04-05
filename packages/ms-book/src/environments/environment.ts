@@ -8,5 +8,8 @@ function getRequiredEnvVar(name: string): string {
 
 export const environment = {
   production: false,
-  db: getRequiredEnvVar('BOOKS_DATABASE_CONNECTION_STRING')
+  db: getRequiredEnvVar('BOOKS_DATABASE_CONNECTION_STRING'),
+  appName: 'ms-book',
+  debug: 'info',
+  zipkinUrl: getRequiredEnvVar('ZIPKIN_URL')
 };

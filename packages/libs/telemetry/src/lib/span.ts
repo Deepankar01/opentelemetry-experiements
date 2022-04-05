@@ -1,6 +1,6 @@
 export enum Domains {
   apolloGraphQL = 'Apollo GraphQL',
-  cosmosDB = 'Cosmos Database',
+  mongoDB = 'Mongo Database',
   quote = 'Quote',
 }
 
@@ -11,9 +11,9 @@ const ApolloGraphQLEvents = {
   subgraphReady: `${Domains.apolloGraphQL} Subgraph Ready`,
 };
 
-const CosmosDBEvents = {
-  connecting: `${Domains.cosmosDB} Connecting`,
-  connectionReady: `${Domains.cosmosDB} Connection Ready`,
+const MongoDBEvents = {
+  connecting: `${Domains.mongoDB} Connecting`,
+  connectionReady: `${Domains.mongoDB} Connection Ready`,
 };
 
 const QuoteEvents = {
@@ -23,6 +23,6 @@ const QuoteEvents = {
 
 export const OTelEvents = {
   ApolloGraphQLEvents,
-  CosmosDBEvents,
+  MongoDBEvents,
   QuoteEvents,
 };
