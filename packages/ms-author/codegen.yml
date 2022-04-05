@@ -1,0 +1,25 @@
+overwrite: true
+schema:
+  - 'src/schema/*.gql'
+hooks:
+  afterOneFileWrite:
+    - prettier --write
+generates:
+  generated/graphql.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-resolvers'
+    config:
+      federation: true
+      mappers:
+        IProduct: '../src/lib/eva/types#BaseIProduct'
+        AccessoryProduct: '../src/lib/eva/types#BaseAccessoryProduct'
+        ServiceProduct: '../src/lib/eva/types#BaseServiceProduct'
+        ContactLensProduct: '../src/lib/eva/types#BaseContactLensProduct'
+        FrameProduct: '../src/lib/eva/types#BaseFrameProduct'
+        LensProduct: '../src/lib/eva/types#BaseLensProduct'
+        PackageQuantityVariant: "Omit<{T}, 'product'>"
+        Product: '../src/lib/eva/types#BaseProduct'
+      noSchemaStitching: true
+      useIndexSignature: true
+      makeResolverTypeCallable: true

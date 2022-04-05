@@ -10,7 +10,7 @@
         "outputPath": "dist/packages/ms-book",
         "main": "packages/ms-book/src/main.ts",
         "tsConfig": "packages/ms-book/tsconfig.app.json",
-        "assets": ["packages/ms-book/src/assets"]
+        "assets": ["packages/ms-book/src/schema"]
       },
       "configurations": {
         "production": {
@@ -45,6 +45,19 @@
       "options": {
         "jestConfig": "packages/ms-book/jest.config.js",
         "passWithNoTests": true
+      }
+    },
+    "generate": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": ["apps/ms-product/generated"],
+      "options": { "color": true, "commands": ["graphql-codegen"], "cwd": "packages/ms-book", "parallel": false }
+    },
+    "type-check": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "color": true,
+        "commands": ["tsc --noEmit --project tsconfig.app.json"],
+        "cwd": "apps/ms-financial-reporting"
       }
     }
   },

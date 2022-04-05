@@ -1,0 +1,14 @@
+enum BOOKSTATUS {
+  published
+  review
+  printing
+  introduced
+}
+
+interface Book @key(fields: "publisherId") @key(fields: "authorId") {
+  id: String!
+  name: String!
+  publisherId: String!
+  authorId: String!
+  status: BOOKSTATUS!
+}

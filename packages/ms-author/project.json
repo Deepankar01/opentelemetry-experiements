@@ -9,8 +9,7 @@
       "options": {
         "outputPath": "dist/packages/ms-author",
         "main": "packages/ms-author/src/main.ts",
-        "tsConfig": "packages/ms-author/tsconfig.app.json",
-        "assets": ["packages/ms-author/src/assets"]
+        "tsConfig": "packages/ms-author/tsconfig.app.json"
       },
       "configurations": {
         "production": {

@@ -9,8 +9,7 @@
       "options": {
         "outputPath": "dist/packages/ms-publisher",
         "main": "packages/ms-publisher/src/main.ts",
-        "tsConfig": "packages/ms-publisher/tsconfig.app.json",
-        "assets": ["packages/ms-publisher/src/assets"]
+        "tsConfig": "packages/ms-publisher/tsconfig.app.json"
       },
       "configurations": {
         "production": {
