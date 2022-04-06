@@ -22,7 +22,6 @@ enum InstrumentList {
 export const PossibleInstruments: Record<InstrumentList, (...args: Array<string>) => InstrumentationOption> = {
   MongoDB: () => new MongooseInstrumentation({
     dbStatementSerializer: (operation: string, payload: SerializerPayload):string => {
-      console.log(operation);
       return JSON.stringify(payload);
     } 
   }),

@@ -19,8 +19,9 @@ const port: number = parseInt(process.env.MS_BOOK_PORT as string, 10) || 3000;
     span.addEvent(OTelEvents.MongoDBEvents.connectionReady);
 
     const createServer = (await import('./server')).createServer;
-    await createServer(globalTracer).listen({ port });
-    logger.info(`🚀 Book service ready at ${port}`);
+    const {app, server} = await createServer(globalTracer);
+    app.listen({ port });
+    logger.info(`🚀 Book service ready at ${port}${server.graphqlPath}`);
     span.addEvent(OTelEvents.ApolloGraphQLEvents.subgraphReady, { port:port });
     span.end();
   });
